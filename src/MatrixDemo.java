@@ -1,6 +1,35 @@
 import java.util.Scanner;
 public class MatrixDemo {
 
+    static public int oneMatricesOperations()
+    {
+        Scanner input=new Scanner(System.in);
+
+        System.out.println("Choose an operation : ");
+        System.out.println("1 : Scalar Multiplication");
+        System.out.println("2 : Transpose");
+        System.out.println("3 : Trace");
+        System.out.println("4 : Power");
+
+        int operation;
+        operation = input.nextInt();
+
+        return operation;
+    }
+    static public int twoMatricesOperations()
+    {
+        Scanner input=new Scanner(System.in);
+
+        System.out.println("Choose an operation : ");
+        System.out.println("1 : Addition");
+        System.out.println("2 : Subtraction");
+        System.out.println("3 : Multiplication");
+
+        int operation;
+        operation = input.nextInt();
+
+        return operation;
+    }
 
 
     public static void main(String[] args) {
@@ -70,8 +99,49 @@ public class MatrixDemo {
         }
 
         //choosing one of the available operations
-        m1.operation(m2);
+        if (m2 == null) {
+            switch (oneMatricesOperations()) {
+                case 1:
+                    int multiplication;
+                    System.out.println("Enter the number you'd like to multiply the matrix with");
+                    multiplication = input.nextInt();
+                    m1.printMatrix(m1.scalarMultiplication(multiplication));
+                    break;
+                case 2:
+                    System.out.println(m1.transpose());
+                    break;
+                case 3:
+                    System.out.println("The sum of the elements in the diagonal : "+ m1.trace());
+                    break;
+                case 4:
+                    System.out.println("Enter the power you'd like to apply on the matrix");
+                    int power;
+                    power = input.nextInt();
+                    m1.printMatrix(m1.power(power));
+                    break;
+                default:
+                    System.out.println("Invalid option");
+            }//switch
 
+
+        }//if
+        else
+        {
+            switch (twoMatricesOperations()) {
+                case 1:
+                    System.out.println(m1.add(m2));
+                    break;
+                case 2:
+                    System.out.println(m1.subtract(m2));
+                    break;
+                case 3:
+                    System.out.println(m1.multiplication(m2));
+                    break;
+                default:
+                    System.out.println("Invalid option");
+
+            }//switch
+        }//else
 
 
 
