@@ -1,2 +1,2 @@
-# Matrix
-A matrix program to apply operations on matrices
+# MathPrograms 
+programs to solve your assignments
